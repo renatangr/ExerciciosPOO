@@ -38,4 +38,13 @@ public class Pessoa {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+    
+        public String imprimir() {
+        String str = "Nome: "    + getNome()  +
+                     "\nCPF: "   + getCPF() +
+                     "\nSexo "   + getSexo() +
+                     "\nIdade: " + getIdade();
+        
+        return str;
+    } 
 }
