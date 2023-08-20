@@ -57,6 +57,18 @@ public class Aluno {
         this.af = af;
     }
     
+    public double calculaMedia () {
+        double media = ac1 * 0.15 + ac2 * 0.30 + ag * 0.10 + af * 0.45;
+        return media;
+    }
+    
+    public String verificaAprovacao() {
+        if (calculaMedia () >= 5 ) {
+            return "Aprovado.";
+        } else
+            return "Reprovado.";
+    }
+    
     public String imprimir() {
         String str = "Nome: "         + getNome()  +
                      "\nRA: "         + getRa() +
