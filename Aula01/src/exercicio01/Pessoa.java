@@ -39,12 +39,12 @@ public class Pessoa {
         this.idade = idade;
     }
     
-        public String imprimir() {
-        String str = "Nome: "    + getNome()  +
-                     "\nCPF: "   + getCPF() +
-                     "\nSexo "   + getSexo() +
-                     "\nIdade: " + getIdade();
-        
-        return str;
-    } 
+    public String imprimir() {
+    String str = "Nome: "    + getNome()  +
+                 "\nCPF: "   + getCPF() +
+                 "\nSexo "   + getSexo() +
+                 "\nIdade: " + getIdade();
+
+    return str;
+} 
 }
