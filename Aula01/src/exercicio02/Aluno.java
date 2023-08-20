@@ -57,5 +57,16 @@ public class Aluno {
         this.af = af;
     }
     
-    
+    public String imprimir() {
+        String str = "Nome: "         + getNome()  +
+                     "\nRA: "         + getRa() +
+                     "\nAC1 "         + getAc1() +
+                     "\nAC2: "        + getAc2() +
+                     "\nAG: "         + getAg() +
+                     "\nAF: "         + getAf() +
+                     "\nMédia: "      + calculaMedia() +
+                     "\nSituação: "  + verificaAprovacao();
+                
+        return str;
+    } 
 }
