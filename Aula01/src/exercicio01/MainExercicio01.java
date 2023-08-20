@@ -12,7 +12,7 @@ public class MainExercicio01 {
         Pessoa usuario = null;
         
         do {
-        String[] options = {"Criar Usuário", "Exibir Usuário", "Sair"};
+        String[] options = {"Criar usuário", "Exibir usuário cadastrado", "Sair"};
 
         escolha = JOptionPane.showOptionDialog(null, "Escolha uma das opções abaixo:",
                 "Escolha uma opção",
