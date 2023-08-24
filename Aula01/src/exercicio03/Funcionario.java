@@ -85,10 +85,18 @@ public class Funcionario {
         }
     }
     
+    public String exibirVinculo() {
+        if (tipoVinculo == 0) {
+            return "Horista";
+        } else {
+            return "Normal";
+        }
+    }
+    
     public String imprimir () {
         String str = "Nome: " + getNome() +
                      "\nCrachá: " + getCracha() +
-                     "\nVínculo: " + getTipoVinculo() +
+                     "\nVínculo: " + exibirVinculo() +
                      "\nSalário: " + calculaSalario() +
                      "\nDesconto: " + getValorDesconto() +
                      "\nValor a receber: " + calculaValorReceber();
