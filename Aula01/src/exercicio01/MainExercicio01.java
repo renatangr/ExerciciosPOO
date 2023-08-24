@@ -9,7 +9,7 @@ public class MainExercicio01 {
         String nome, cpf;
         int idade,escolha;
         char sexo;
-        Pessoa usuario = null;
+        Pessoa usuario = new Pessoa ();
         
         do {
         String[] options = {"Criar usuário", "Exibir usuário cadastrado", "Sair"};
@@ -26,7 +26,6 @@ public class MainExercicio01 {
                     idade = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade: "));
                     sexo = JOptionPane.showInputDialog("Digite o Sexo (Masculino, Feminino, Outros): ").charAt(0);
                     
-                    usuario = new  Pessoa ();
                     usuario.setNome(nome);
                     usuario.setCPF(cpf);
                     usuario.setIdade(idade); 
