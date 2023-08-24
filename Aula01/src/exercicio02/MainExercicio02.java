@@ -27,7 +27,7 @@ public class MainExercicio02 {
                     ag = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da AG: "));
                     af = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota da AF: "));
                     
-                    aluno = new Aluno ();
+                    
                     aluno.setNome(nome);
                     aluno.setRa(ra);
                     aluno.setAc1(ac1); 
