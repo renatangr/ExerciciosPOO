@@ -1,8 +1,15 @@
 
 package exercicio01;
 
-public class ScreenExercicio01 extends javax.swing.JFrame {
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
+public class ScreenExercicio01 extends javax.swing.JFrame {
+    
+    Apolice apolice = null;
+    ArrayList<Apolice> lstApolice = new ArrayList<>();
+    
+    
     public ScreenExercicio01() {
         initComponents();
     }
@@ -57,6 +64,11 @@ public class ScreenExercicio01 extends javax.swing.JFrame {
         });
 
         btnCadastrar.setText("Cadastrar nova apólice");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,6 +142,11 @@ public class ScreenExercicio01 extends javax.swing.JFrame {
         jLabel7.setText("Número da apólice:");
 
         btnPesquisar.setText("Buscar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -163,6 +180,11 @@ public class ScreenExercicio01 extends javax.swing.JFrame {
 
         btnApagar.setBackground(new java.awt.Color(255, 102, 102));
         btnApagar.setText("Apagar");
+        btnApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -222,8 +244,52 @@ public class ScreenExercicio01 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
-        // TODO add your handling code here:
+        if (apolice == null) {
+           JOptionPane.showMessageDialog(rootPane,"Nenhuma Apólice cadastrada!");
+        }
+        
+        String str = " ";
+        
+        for (Apolice apolice : lstApolice) {
+            str += "\n=====================\n" +
+                    apolice.imprimir();    
+        }
+        
+        JOptionPane.showMessageDialog(rootPane, str);
     }//GEN-LAST:event_btnExibirActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        apolice = new Apolice(Integer.parseInt(txtNumero.getText()),
+                              txtNome.getText(), Integer.parseInt(txtIdade.getText()),
+                              cbxSexo.getSelectedIndex(), Double.parseDouble(txtValor.getText()));
+        lstApolice.add(apolice);
+        
+        JOptionPane.showMessageDialog(rootPane, "Apólice nº " + txtNumero.getText()+ " foi cadastrada com sucesso");
+        
+        txtNumero.setText("");
+        txtNome.setText("");
+        txtIdade.setText("");
+        cbxSexo.setSelectedIndex(0);
+        txtValor.setText("");
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        for (Apolice apolice : lstApolice) {
+            if (apolice.getNumero() == Integer.parseInt(txtPesquisar.getText())) {
+                JOptionPane.showMessageDialog(rootPane, apolice.imprimir("\n Não há mais resultados a exibir."));
+            }
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarActionPerformed
+        for(int i = 0; i < lstApolice.size(); i++) {
+            Apolice apolice = lstApolice.get(i);
+            if(apolice.getNumero() == Integer.parseInt(txtApagar.getText())) {
+                lstApolice.remove(i);
+                JOptionPane.showMessageDialog(rootPane, "Apólice removida com sucesso!");
+            }
+        }
+    }//GEN-LAST:event_btnApagarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -85,6 +85,10 @@ public class Apolice {
                           "\nValor da Apólice: " + calcularValor();
         
         return imprimir;        
-    }         
+    } 
+    
+    public String imprimir(String str) {
+        return imprimir() + "\n" + str;
+    }
 }  
 
