@@ -67,7 +67,7 @@ public class Funcionario {
     }
     
     public double calculaSalario () {
-        if (tipoVinculo == 0) {
+        if (tipoVinculo == 1) {
             double salarioHora = valorHora * qtdeHora;
             return salarioHora;
         } else {
@@ -76,7 +76,7 @@ public class Funcionario {
     }
     
     public double calculaValorReceber () {
-        if (tipoVinculo == 0) {
+        if (tipoVinculo == 1) {
             double descontadoHora = (valorHora * qtdeHora) - valorDesconto;
             return descontadoHora;
         } else {
@@ -86,7 +86,7 @@ public class Funcionario {
     }
     
     public String exibirVinculo() {
-        if (tipoVinculo == 0) {
+        if (tipoVinculo == 1) {
             return "Horista";
         } else {
             return "Normal";
