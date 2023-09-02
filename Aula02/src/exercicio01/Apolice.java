@@ -69,7 +69,6 @@ public class Apolice {
     }
     
     public String sexo(){
-        
         if (sexo == 1) {
             return "Masculino";
         } else {
@@ -81,7 +80,7 @@ public class Apolice {
         String imprimir = "Número: " + getNumero() +
                           "\nNome: " + getNome() +
                           "\nIdad: " + getIdade() +
-                          "\nSexo: " + getSexo() +
+                          "\nSexo: " + sexo() +
                           "\nValor do Automovel: " + getValorAutomovel() +
                           "\nValor da Apólice: " + calcularValor();
         
