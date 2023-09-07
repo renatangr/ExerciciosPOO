@@ -43,5 +43,25 @@ public class Vendedor {
         return calcularPagamentoComissao(valorVenda) - valorDesconto;
     }
     
+    public String imprimir () {
+       return "Código do vendedor: " + getCodigo() +
+              "\nNome do vendedor: " + getNome() +
+              "\nPercentual de Comissão: " + getPercentualComissao();
+
+    }
     
+    public String imprimir (double valorVenda) {
+        return "Código do vendedor: " + getCodigo() +
+              "\nNome do vendedor: " + getNome() +
+              "\nPercentual de Comissão: " + getPercentualComissao() +
+              "\nValor total da comissão: " + calcularPagamentoComissao(valorVenda);
+    }
+    
+    public String imprimir(double valorVenda, double valorDesconto) {
+        return "Código do vendedor: " + getCodigo() +
+              "\nNome do vendedor: " + getNome() +
+              "\nPercentual de Comissão: " + getPercentualComissao() +
+              "\nDesconto: " + valorDesconto +
+              "\nValor total da comissão: " + calcularPagamentoComissao(valorVenda, valorDesconto);
+    }
 }
