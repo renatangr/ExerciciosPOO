@@ -134,6 +134,11 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
         jLabel6.setText("Código do vendedor:");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -317,15 +322,24 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
         if (vendedor == null) {
             JOptionPane.showMessageDialog(rootPane,"Nenhum vendedor cadastrado!");
         }
+        
         String str = " ";
         
         for (Vendedor vendedor : lstVendedor) {
-            str = "\n=====================\n" +
+            str += "\n=====================\n" +
                     vendedor.imprimir();    
         }
         
         JOptionPane.showMessageDialog(rootPane, str);
     }//GEN-LAST:event_btnExibirActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        for (Vendedor vendedor : lstVendedor) {
+            if (vendedor.getCodigo() == Integer.parseInt(txtPesquisar.getText())) {
+                JOptionPane.showMessageDialog(rootPane, vendedor.imprimir("\n Não há mais resultados a exibir."));
+            }
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

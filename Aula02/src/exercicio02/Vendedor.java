@@ -46,7 +46,7 @@ public class Vendedor {
     public String imprimir () {
        return "Código do vendedor: " + getCodigo() +
               "\nNome do vendedor: " + getNome() +
-              "\nPercentual de Comissão: " + getPercentualComissao();
+              "\nPercentual de Comissão: " + getPercentualComissao() + " %";
 
     }
     
@@ -57,17 +57,17 @@ public class Vendedor {
     public String imprimir (double valorVenda) {
         return "Código do vendedor: " + getCodigo() +
               "\nNome do vendedor: " + getNome() +
-              "\nValor da venda: " + valorVenda +
-              "\nPercentual de Comissão: " + getPercentualComissao() +
-              "\nValor total da comissão: " + calcularPagamentoComissao(valorVenda);
+              "\nValor da venda: R$ " + valorVenda +
+              "\nPercentual de Comissão: " + getPercentualComissao() + " %" +
+              "\nValor total da comissão: R$ " + calcularPagamentoComissao(valorVenda);
     }
     
     public String imprimir(double valorVenda, double valorDesconto) {
         return "Código do vendedor: " + getCodigo() +
               "\nNome do vendedor: " + getNome() +
-              "\nValor da venda: " + valorVenda +
-              "\nPercentual de Comissão: " + getPercentualComissao() +
-              "\nDesconto: " + valorDesconto +
-              "\nValor total da comissão: " + calcularPagamentoComissao(valorVenda, valorDesconto);
+              "\nValor da venda: R$ " + valorVenda +
+              "\nPercentual de Comissão: " + getPercentualComissao() + " %" +
+              "\nDesconto: R$ " + valorDesconto +
+              "\nValor total da comissão: R$ " + calcularPagamentoComissao(valorVenda, valorDesconto);
     }
 }
