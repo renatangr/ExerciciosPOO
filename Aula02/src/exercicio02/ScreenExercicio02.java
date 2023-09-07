@@ -142,6 +142,16 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
         jLabel9.setText("Valor da venda:");
 
         txtValorVenda.setEditable(false);
+        txtValorVenda.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                txtValorVendaComponentHidden(evt);
+            }
+        });
+        txtValorVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorVendaActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Valor do desconto:");
 
@@ -310,6 +320,11 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
         for (Vendedor vendedor : lstVendedor) {
             if (vendedor.getCodigo() == Integer.parseInt(txtCodigoVendedor.getText())) {
                 txtNomeVendedor.setText(vendedor.getNome());
+                JOptionPane.showMessageDialog(rootPane, "Vendedor encontrado, prossiga com o valor da venda e desconto. \n Caso não haja desconto, digite 0.");
+                
+                txtValorVenda.setEditable(true);
+                txtValorDesconto.setEditable(true);
+                
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Vendedor não encontrado!");
             }
@@ -317,7 +332,19 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        
+        if (vendedor == null) {
+            JOptionPane.showMessageDialog(rootPane, "Não há vendedores cadastrados.");
+        }
+
+        for (Vendedor vendedor : lstVendedor) {   
+            if (vendedor.getCodigo() == Double.parseDouble(txtCodigoVendedor.getText())) {
+                if (Double.parseDouble(txtValorDesconto.getText()) == 0) {
+                     JOptionPane.showMessageDialog(rootPane,vendedor.imprimir(Double.parseDouble(txtValorVenda.getText())));
+                } else {
+                    JOptionPane.showMessageDialog(rootPane,vendedor.imprimir(Double.parseDouble(txtValorVenda.getText()), Double.parseDouble(txtValorDesconto.getText())));
+                }
+            }   
+        }
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void txtNomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeVendedorActionPerformed
@@ -327,7 +354,7 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
         if (vendedor == null) {
             JOptionPane.showMessageDialog(rootPane,"Nenhum vendedor cadastrado!");
-        }
+        } 
 
         String str = " ";
 
@@ -350,6 +377,14 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
         txtNome.setText("");
         txtComissao.setText("");
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtValorVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorVendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorVendaActionPerformed
+
+    private void txtValorVendaComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtValorVendaComponentHidden
+
+    }//GEN-LAST:event_txtValorVendaComponentHidden
 
     /**
      * @param args the command line arguments

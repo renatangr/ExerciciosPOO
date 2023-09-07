@@ -40,7 +40,7 @@ public class Vendedor {
     }
     
     public double calcularPagamentoComissao (double valorVenda, double valorDesconto) {
-        return calcularPagamentoComissao(valorVenda) - valorDesconto;
+        return (valorVenda - valorDesconto) * percentualComissao/100;
     }
     
     public String imprimir () {
