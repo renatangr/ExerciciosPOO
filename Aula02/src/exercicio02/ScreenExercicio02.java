@@ -336,15 +336,12 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Não há vendedores cadastrados.");
         }
 
-        for (Vendedor vendedor : lstVendedor) {   
-            if (vendedor.getCodigo() == Double.parseDouble(txtCodigoVendedor.getText())) {
-                if (Double.parseDouble(txtValorDesconto.getText()) == 0) {
-                     JOptionPane.showMessageDialog(rootPane,vendedor.imprimir(Double.parseDouble(txtValorVenda.getText())));
-                } else {
-                    JOptionPane.showMessageDialog(rootPane,vendedor.imprimir(Double.parseDouble(txtValorVenda.getText()), Double.parseDouble(txtValorDesconto.getText())));
-                }
-            }   
+        if (Double.parseDouble(txtValorDesconto.getText()) == 0) {
+             JOptionPane.showMessageDialog(rootPane,vendedor.imprimir(Double.parseDouble(txtValorVenda.getText())));
+        } else {
+            JOptionPane.showMessageDialog(rootPane,vendedor.imprimir(Double.parseDouble(txtValorVenda.getText()), Double.parseDouble(txtValorDesconto.getText())));
         }
+              
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void txtNomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeVendedorActionPerformed
