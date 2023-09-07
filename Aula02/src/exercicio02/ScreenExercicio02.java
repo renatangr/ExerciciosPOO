@@ -1,7 +1,13 @@
 
 package exercicio02;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class ScreenExercicio02 extends javax.swing.JFrame {
+    
+    Vendedor vendedor = null;
+    ArrayList<Vendedor> lstVendedor = new ArrayList<>();
 
     public ScreenExercicio02() {
         initComponents();
@@ -75,6 +81,11 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
         });
 
         btnExibir.setText("Exibir todos");
+        btnExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExibirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -286,12 +297,35 @@ public class ScreenExercicio02 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        vendedor = new Vendedor (Integer.parseInt(txtCodigo.getText()), 
+                                txtNome.getText(), Double.parseDouble(txtComissao.getText()));
+        lstVendedor.add(vendedor);
+        
+        JOptionPane.showMessageDialog(rootPane, "Vendedor código " + txtCodigo.getText()+ " cadastrado com sucesso");
+        
+        txtCodigo.setText("");
+        txtNome.setText("");
+        txtComissao.setText("");
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
+        if (vendedor == null) {
+            JOptionPane.showMessageDialog(rootPane,"Nenhum vendedor cadastrado!");
+        }
+        String str = " ";
+        
+        for (Vendedor vendedor : lstVendedor) {
+            str = "\n=====================\n" +
+                    vendedor.imprimir();    
+        }
+        
+        JOptionPane.showMessageDialog(rootPane, str);
+    }//GEN-LAST:event_btnExibirActionPerformed
 
     /**
      * @param args the command line arguments

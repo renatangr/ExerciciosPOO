@@ -172,6 +172,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Exibir todos"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExibirActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
