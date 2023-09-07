@@ -4,6 +4,12 @@ public class Vendedor {
     private int codigo;
     private String nome;
     private double percentualComissao;
+    
+    public Vendedor (int codigo, String nome, double percentualComissao) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.percentualComissao = percentualComissao;   
+    }
 
     public int getCodigo() {
         return codigo;
@@ -29,7 +35,13 @@ public class Vendedor {
         this.percentualComissao = percentualComissao;
     }
     
+    public double calcularPagamentoComissao (double valorVenda) {
+        return valorVenda * percentualComissao / 100;
+    }
     
+    public double calcularPagamentoComissao (double valorVenda, double valorDesconto) {
+        return calcularPagamentoComissao(valorVenda) - valorDesconto;
+    }
     
     
 }
