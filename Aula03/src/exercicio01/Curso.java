@@ -54,8 +54,10 @@ public class Curso {
     }
     
     public String imprimir () {
-        String impr = "Dados do curso" +
-                      "\n==========================="+
+        String impr = "";
+        
+        impr += "Dados do curso" +
+                      "\n-------------------------"+
                       "\nCódigo: " +codigo+
                       "\nNome: " +nome+
                       "\nCarga horária:" +cargaHoraria;
