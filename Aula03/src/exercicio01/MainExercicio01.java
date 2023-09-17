@@ -12,7 +12,7 @@ public class MainExercicio01 {
         String numeroRA = null;
         
         ArrayList<Curso> lstCursos = new ArrayList<>();
-        
+        ArrayList<Aluno> lstAlunos = new ArrayList<>();
         
         Curso curso = new Curso ();
                
@@ -41,9 +41,7 @@ public class MainExercicio01 {
                     
                     break;
                     
-                
-                case 1:
-                                      
+                case 1:              
                     if (lstCursos.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Impossível cadastrar aluno sem cursos disponíveis.");
                     
@@ -56,21 +54,47 @@ public class MainExercicio01 {
                     Curso cursoSelecionado = (Curso) JOptionPane.showInputDialog(null, "Selecione o curso:",
                                 "Selecionar Curso", JOptionPane.QUESTION_MESSAGE, null, lstCursos.toArray(), lstCursos.get(0));
                         
+                    if (cursoSelecionado != null) {
+                        cursoSelecionado.inserirAluno(new Aluno(nomeAluno,numeroRA));
+                        JOptionPane.showMessageDialog(null, "Aluno cadastrado no curso: " + cursoSelecionado.getNome());
+                    }
+                    
+                    break;
+                        
+                case 2:
+                    if (lstCursos.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Nenhum curso cadastrado. Cadastre um curso primeiro.");
+                    
+                        break;
+                    }
+                        cursoSelecionado = (Curso) JOptionPane.showInputDialog(null, "Selecione o curso:",
+                                "Selecionar Curso", JOptionPane.QUESTION_MESSAGE, null, lstCursos.toArray(), lstCursos.get(0));
+                        
                         if (cursoSelecionado != null) {
-                            cursoSelecionado.inserirAluno(new Aluno(nomeAluno,numeroRA));
-                            JOptionPane.showMessageDialog(null, "Aluno cadastrado no curso: " + cursoSelecionado.getNome());
-                        }
-                
+                        int escolhaAluno = (int) JOptionPane.showInputDialog(null, "Selecione o aluno:",
+                                "Selecionar Aluno", JOptionPane.QUESTION_MESSAGE, null, lstAlunos.toArray(), lstAlunos.get(0));
+                        
+                        cursoSelecionado.removerAluno(escolhaAluno);
+                        JOptionPane.showMessageDialog(null, "Aluno removido no curso: " + cursoSelecionado.getNome());
+                    }
+                    
+                    break;
+                    
+                case 3:
+                    JOptionPane.showMessageDialog(null, curso.imprimir());
+                    break;
+                    
+                case 4:
+                    JOptionPane.showMessageDialog(null, curso.imprimirCompleto());
+                    break;
+                    
                 case 5:
                     System.exit(0);
                     break;
-
-                   
             }
+            
         } while (escolha != 5);
         
-        
     }
-  
     
 }
