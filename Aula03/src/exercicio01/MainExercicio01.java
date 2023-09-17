@@ -19,7 +19,7 @@ public class MainExercicio01 {
         Aluno aluno = new Aluno ();
         
         do {
-        String[] options = {"Criar Curso", "Criar Aluno", "Remover Aluno", 
+        String[] options = {"Cadastrar Curso", "Cadastrar Aluno", "Remover Aluno", 
             "Mostrar Todos os Cursos", "Mostrar alunos do curso", "Sair" };
         
         escolha = JOptionPane.showOptionDialog(null, "Escolha uma das opções abaixo:",
@@ -39,16 +39,26 @@ public class MainExercicio01 {
                     
                     lstCursos.add(curso);
                     
+                    break;
+                    
                 
                 case 1:
                     Object[] optCursos = lstCursos.toArray();
                     
+                    if (lstCursos == null) {
+                        JOptionPane.showMessageDialog(null, "Impossível cadastrar aluno sem cursos disponíveis.");
+                    
+                        break;
+                    }
+                    
                     nomeAluno = JOptionPane.showInputDialog("Digite o nome do aluno: ");
                     numeroRA = JOptionPane.showInputDialog("Digite o RA do aluno: ");
-                    
+                                       
                     JOptionPane.showOptionDialog(null, "Escolha o curso matriculado:",
                     "Escolha uma opção",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, optCursos, optCursos[0]);
+                    
+                    break;
                     
                    
             }
