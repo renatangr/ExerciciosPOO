@@ -1,20 +1,81 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package exercicio01;
 
-/**
- *
- * @author RenataMorinigoLimaNe
- */
-public class Curso {
+import java.util.ArrayList;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Curso {
+    private int codigo;
+    private String nome;
+    private int cargaHoraria;
+    private ArrayList<Aluno> lstAlunos;
+    
+    public Curso () {
+        lstAlunos = new ArrayList<>();
     }
     
+    public Curso (int codigo, String nome, int cargaHoraria) {
+        this();
+        this.codigo = codigo;
+        this.nome = nome;
+        this.cargaHoraria = cargaHoraria;
+    }
+    
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getCargaHoraria() {
+        return cargaHoraria;
+    }
+
+    public void setCargaHoraria(int cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+    }
+    
+    public void inserirAluno (Aluno aluno) {
+        lstAlunos.add(aluno);
+    }
+    
+    public void removerAluno (int index) {
+        lstAlunos.remove(index);
+    }
+    
+    public String imprimir () {
+        return  "Dados do curso" +
+                "\n==========================="+
+                "\nCódigo: " +codigo+
+                "\nNome: " +nome+
+                "\nCarga horária:" +cargaHoraria;
+    }
+    
+    
+    
+    public String imprimirCompleto () {    
+        String str = "";
+        str += "***Dados do curso***" +
+                "\n-------------------------"+
+                "\nCódigo: " +codigo+
+                "\nNome: " +nome+
+                "\nCarga horária:" +cargaHoraria +
+                
+                "\n***Dados dos alunos***";
+        
+        for (Aluno aluno : lstAlunos) {
+            str += aluno.imprimir();
+        }
+        
+        return str;
+    }
 }
