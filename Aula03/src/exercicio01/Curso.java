@@ -6,6 +6,7 @@ public class Curso {
     private int codigo;
     private String nome;
     private int cargaHoraria;
+    private ArrayList<Curso> lstCursos;
     private ArrayList<Aluno> lstAlunos;
     
     public Curso () {
@@ -53,13 +54,17 @@ public class Curso {
     }
     
     public String imprimir () {
-        return  "Dados do curso" +
-                "\n==========================="+
-                "\nCódigo: " +codigo+
-                "\nNome: " +nome+
-                "\nCarga horária:" +cargaHoraria;
+        String impr = "Dados do curso" +
+                      "\n==========================="+
+                      "\nCódigo: " +codigo+
+                      "\nNome: " +nome+
+                      "\nCarga horária:" +cargaHoraria;
+        
+        for (Curso curso : lstCursos) {
+        impr += curso.imprimir();
+        }
+        return impr;
     }
-    
     
     
     public String imprimirCompleto () {    
