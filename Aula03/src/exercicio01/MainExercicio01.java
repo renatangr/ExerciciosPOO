@@ -13,6 +13,7 @@ public class MainExercicio01 {
         
         ArrayList<Curso> lstCursos = new ArrayList<>();
         
+        
         Curso curso = new Curso ();
                
         Aluno aluno = new Aluno ();
@@ -40,17 +41,14 @@ public class MainExercicio01 {
                     
                 
                 case 1:
-                    String cursosOpt = "";
-                    for(Curso c : lstCursos){
-                        cursosOpt += c + "\n"; 
-                    } 
+                    Object[] optCursos = lstCursos.toArray();
                     
                     nomeAluno = JOptionPane.showInputDialog("Digite o nome do aluno: ");
                     numeroRA = JOptionPane.showInputDialog("Digite o RA do aluno: ");
                     
                     JOptionPane.showOptionDialog(null, "Escolha o curso matriculado:",
                     "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, cursosOpt, cursosOpt[0]);
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, optCursos, optCursos[0]);
                     
                    
             }
