@@ -37,15 +37,14 @@ public class MainExercicio01 {
                     curso.setCodigo(codigoCurso);
                     curso.setCargaHoraria(horasCurso);
                     
-                    lstCursos.add(curso);
+                    lstCursos.add(new Curso(codigoCurso, nomeCurso,horasCurso));
                     
                     break;
                     
                 
                 case 1:
-                    Object[] optCursos = lstCursos.toArray();
-                    
-                    if (lstCursos == null) {
+                                      
+                    if (lstCursos.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Impossível cadastrar aluno sem cursos disponíveis.");
                     
                         break;
@@ -54,12 +53,18 @@ public class MainExercicio01 {
                     nomeAluno = JOptionPane.showInputDialog("Digite o nome do aluno: ");
                     numeroRA = JOptionPane.showInputDialog("Digite o RA do aluno: ");
                                        
-                    JOptionPane.showOptionDialog(null, "Escolha o curso matriculado:",
-                    "Escolha uma opção",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, optCursos, optCursos[0]);
-                    
+                    Curso cursoSelecionado = (Curso) JOptionPane.showInputDialog(null, "Selecione o curso:",
+                                "Selecionar Curso", JOptionPane.QUESTION_MESSAGE, null, lstCursos.toArray(), lstCursos.get(0));
+                        
+                        if (cursoSelecionado != null) {
+                            cursoSelecionado.inserirAluno(new Aluno(nomeAluno,numeroRA));
+                            JOptionPane.showMessageDialog(null, "Aluno cadastrado no curso: " + cursoSelecionado.getNome());
+                        }
+                
+                case 5:
+                    System.exit(0);
                     break;
-                    
+
                    
             }
         } while (escolha != 5);
