@@ -11,6 +11,7 @@ public class Curso {
     
     public Curso () {
         lstAlunos = new ArrayList<>();
+        lstCursos = new ArrayList<>();
     }
     
     public Curso (int codigo, String nome, int cargaHoraria) {
