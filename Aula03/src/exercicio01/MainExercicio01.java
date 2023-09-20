@@ -6,12 +6,13 @@ import javax.swing.JOptionPane;
 public class MainExercicio01 {
 
     public static void main(String[] args) {
-        int escolha, codigoCurso, horasCurso;
+        int escolha, codigoCurso, horasCurso, escolhaCurso;
         String nomeCurso = null;
         String nomeAluno = null;
         String numeroRA = null;
         
         ArrayList<Curso> lstCursos = new ArrayList<>();
+        ArrayList<Curso> lstCursoNome = new ArrayList<>();
         ArrayList<Aluno> lstAlunos = new ArrayList<>();
         
         Curso curso = new Curso ();
@@ -37,7 +38,8 @@ public class MainExercicio01 {
                     curso.setCodigo(codigoCurso);
                     curso.setCargaHoraria(horasCurso);
                     
-                    lstCursos.add(new Curso(codigoCurso, nomeCurso,horasCurso));
+                    lstCursos.add(new Curso(codigoCurso, nomeCurso, horasCurso));
+                    lstCursoNome.add(new Curso(nomeCurso));
                     
                     break;
                     
@@ -50,25 +52,40 @@ public class MainExercicio01 {
                     
                     nomeAluno = JOptionPane.showInputDialog("Digite o nome do aluno: ");
                     numeroRA = JOptionPane.showInputDialog("Digite o RA do aluno: ");
-                                       
-                    Curso cursoSelecionado = (Curso) JOptionPane.showInputDialog(null, "Selecione o curso:",
-                                "Selecionar Curso", JOptionPane.QUESTION_MESSAGE, null, lstCursos.toArray(), lstCursos.get(0));
-                        
-                    if (cursoSelecionado != null) {
-                        cursoSelecionado.inserirAluno(new Aluno(nomeAluno,numeroRA));
-                        JOptionPane.showMessageDialog(null, "Aluno cadastrado no curso: " + cursoSelecionado.getNome());
+                    
+                    Object[] Curso = lstCursoNome.toArray();  
+                    
+                    Object value = JOptionPane.showInputDialog(null, 
+                                           "Escolha o curso do aluno:", 
+                                           "Escolha do curso", 
+                                            JOptionPane.QUESTION_MESSAGE, 
+                                            null,
+                                            Curso, 
+                                            Curso[0]);
+
+                    
+                    for (int i = 0; i < lstCursos.size(); i++) {
+                        System.out.println(i + ": " + lstCursoNome.get(i).getNome());
                     }
+
+                    if (escolhaCurso >= 0 && escolhaCurso < lstCursoNome.size()) {
+                        lstAlunos.add(new Aluno(numeroRA, nomeAluno));
+                        lstCursos.get(escolhaCurso).inserirAluno(aluno);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Curso não encontrado.");
+                    }
+                    
                     
                     break;
                         
                 case 2:
-                    if (lstCursos.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Nenhum curso cadastrado. Cadastre um curso primeiro.");
+                    if (lstCursos.isEmpty() || lstAlunos.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Nenhum curso ou aluno cadastrado!");
                     
                         break;
                     }
-                        cursoSelecionado = (Curso) JOptionPane.showInputDialog(null, "Selecione o curso:",
-                                "Selecionar Curso", JOptionPane.QUESTION_MESSAGE, null, lstCursos.toArray(), lstCursos.get(0));
+                        escolhaCurso = JOptionPane.showMessageDialog(null, "Escolha o curso ")
+                                
                         
                         if (cursoSelecionado != null) {
                         int escolhaAluno = (int) JOptionPane.showInputDialog(null, "Selecione o aluno:",

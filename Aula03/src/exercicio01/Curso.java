@@ -6,12 +6,10 @@ public class Curso {
     private int codigo;
     private String nome;
     private int cargaHoraria;
-    private ArrayList<Curso> lstCursos;
     private ArrayList<Aluno> lstAlunos;
     
     public Curso () {
         lstAlunos = new ArrayList<>();
-        lstCursos = new ArrayList<>();
     }
     
     public Curso (int codigo, String nome, int cargaHoraria) {
@@ -20,7 +18,6 @@ public class Curso {
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
     }
-    
     
     public int getCodigo() {
         return codigo;
@@ -54,36 +51,23 @@ public class Curso {
         lstAlunos.remove(index);
     }
     
-    public String imprimir () {
-        String impr = "";
-        
-        impr += "Dados do curso" +
+    public String imprimir () {  
+        return "Dados do curso" +
                       "\n-------------------------"+
                       "\nCódigo: " +codigo+
                       "\nNome: " +nome+
                       "\nCarga horária:" +cargaHoraria;
         
-        for (Curso curso : lstCursos) {
-        impr += curso.imprimir();
-        }
-        return impr;
     }
     
     
     public String imprimirCompleto () {    
-        String str = "";
-        str += "***Dados do curso***" +
-                "\n-------------------------"+
-                "\nCódigo: " +codigo+
-                "\nNome: " +nome+
-                "\nCarga horária:" +cargaHoraria +
-                
-                "\n***Dados dos alunos***";
-        
+        StringBuilder sb = new StringBuilder();
+        sb.append("Código: ").append(codigo).append("\nNome: ").append(nome).append("\nCarga Horária: ").append(cargaHoraria);
+        sb.append("\nAlunos:\n");
         for (Aluno aluno : lstAlunos) {
-            str += aluno.imprimir();
+            sb.append(aluno.imprimir()).append("\n");
         }
-        
-        return str;
+        return sb.toString();
     }
 }
