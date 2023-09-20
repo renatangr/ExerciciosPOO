@@ -6,17 +6,15 @@ import javax.swing.JOptionPane;
 public class MainExercicio01 {
 
     public static void main(String[] args) {
-        int escolha, codigoCurso, horasCurso, escolhaCurso;
+        int escolha, codigoCurso, horasCurso, escolhaCurso, escolhaAluno, escolhaCursoMostrarAlunos;
         String nomeCurso = null;
         String nomeAluno = null;
         String numeroRA = null;
         
         ArrayList<Curso> lstCursos = new ArrayList<>();
-        ArrayList<Curso> lstCursoNome = new ArrayList<>();
         ArrayList<Aluno> lstAlunos = new ArrayList<>();
-        
+              
         Curso curso = new Curso ();
-               
         Aluno aluno = new Aluno ();
         
         do {
@@ -32,14 +30,9 @@ public class MainExercicio01 {
                 case 0:
                     nomeCurso = JOptionPane.showInputDialog("Digite o nome do curso: ");
                     codigoCurso = Integer.parseInt(JOptionPane.showInputDialog("Digite o código do curso: "));
-                    horasCurso = Integer.parseInt(JOptionPane.showInputDialog("Digite a carga horária: "));
-                    
-                    curso.setNome(nomeCurso);
-                    curso.setCodigo(codigoCurso);
-                    curso.setCargaHoraria(horasCurso);
+                    horasCurso = Integer.parseInt(JOptionPane.showInputDialog("Digite a carga horária: "));                 
                     
                     lstCursos.add(new Curso(codigoCurso, nomeCurso, horasCurso));
-                    lstCursoNome.add(new Curso(nomeCurso));
                     
                     break;
                     
@@ -53,59 +46,78 @@ public class MainExercicio01 {
                     nomeAluno = JOptionPane.showInputDialog("Digite o nome do aluno: ");
                     numeroRA = JOptionPane.showInputDialog("Digite o RA do aluno: ");
                     
-                    Object[] Curso = lstCursoNome.toArray();  
-                    
-                    Object value = JOptionPane.showInputDialog(null, 
-                                           "Escolha o curso do aluno:", 
-                                           "Escolha do curso", 
-                                            JOptionPane.QUESTION_MESSAGE, 
-                                            null,
-                                            Curso, 
-                                            Curso[0]);
-
+                    String[] opcoesCurso = new String[lstCursos.size()];
                     
                     for (int i = 0; i < lstCursos.size(); i++) {
-                        System.out.println(i + ": " + lstCursoNome.get(i).getNome());
-                    }
-
-                    if (escolhaCurso >= 0 && escolhaCurso < lstCursoNome.size()) {
-                        lstAlunos.add(new Aluno(numeroRA, nomeAluno));
-                        lstCursos.get(escolhaCurso).inserirAluno(aluno);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Curso não encontrado.");
+                    opcoesCurso[i] = lstCursos.get(i).getNome();
                     }
                     
-                    
+                    escolhaCurso = JOptionPane.showOptionDialog(null, "Escolha uma das opções abaixo:",
+                    "Escolha uma opção",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesCurso, opcoesCurso[0]);
+        
+                    lstAlunos.add(new Aluno(numeroRA, nomeAluno));
+                    lstCursos.get(escolhaCurso).inserirAluno(aluno);
+                                       
                     break;
                         
                 case 2:
                     if (lstCursos.isEmpty() || lstAlunos.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Nenhum curso ou aluno cadastrado!");
-                    
-                        break;
-                    }
-                        escolhaCurso = JOptionPane.showMessageDialog(null, "Escolha o curso ")
-                                
-                        
-                        if (cursoSelecionado != null) {
-                        int escolhaAluno = (int) JOptionPane.showInputDialog(null, "Selecione o aluno:",
-                                "Selecionar Aluno", JOptionPane.QUESTION_MESSAGE, null, lstAlunos.toArray(), lstAlunos.get(0));
-                        
-                        cursoSelecionado.removerAluno(escolhaAluno);
-                        JOptionPane.showMessageDialog(null, "Aluno removido no curso: " + cursoSelecionado.getNome());
+                    JOptionPane.showMessageDialog(null, "Nenhum curso ou aluno cadastrado!");
+                    break;
                     }
                     
+                    String[] opcoesCurso2 = new String[lstCursos.size()];
+                    
+                    for (int i = 0; i < lstCursos.size(); i++) {
+                    opcoesCurso2[i] = lstCursos.get(i).getNome();
+                    }
+                    
+                    escolhaCurso = JOptionPane.showOptionDialog(null, "Escolha o curso que o aluno está matriculado:",
+                        "Escolha uma opção",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesCurso2, opcoesCurso2[0]);
+
+                    String[] opcoesAluno = new String[lstAlunos.size()];
+                    
+                    for (int i = 0; i < lstAlunos.size(); i++) {
+                        opcoesAluno[i] = lstAlunos.get(i).getNome();
+                    }
+
+                    escolhaAluno = JOptionPane.showOptionDialog(null, "Escolha o aluno a ser removido do curso:",
+                        "Escolha uma opção",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesAluno, opcoesAluno[0]);
+
+                    Curso cursoEscolhido = lstCursos.get(escolhaCurso);
+                    Aluno alunoRemovido = lstAlunos.get(escolhaAluno);
+
+                    cursoEscolhido.removerAluno(alunoRemovido); 
+                    JOptionPane.showMessageDialog(null, "Aluno(a) " + alunoRemovido.getNome() + " removido(a) do curso " + cursoEscolhido.getNome());
+
                     break;
                     
                 case 3:
-                    JOptionPane.showMessageDialog(null, curso.imprimir());
+                    for (Curso c : lstCursos) {
+                        JOptionPane.showMessageDialog(null, "Cursos cadastrados: " + curso.imprimir());
+                    }
                     break;
                     
                 case 4:
-                    JOptionPane.showMessageDialog(null, curso.imprimirCompleto());
+                    String[] opcoesCurso3 = new String[lstCursos.size()];                    
+                    
+                    for (int i = 0; i < lstCursos.size(); i++) {
+                    opcoesCurso3[i] = lstCursos.get(i).getNome();
+                    }
+                    
+                    escolhaCursoMostrarAlunos = JOptionPane.showOptionDialog(null, "Escolha o curso que o aluno está matriculado:",
+                        "Escolha uma opção",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesCurso3, opcoesCurso3[0]);
+                    
+                    JOptionPane.showMessageDialog(null, "Alunos cadastrados no curso " + lstCursos.get(escolhaCursoMostrarAlunos).getNome() + " : " + lstCursos.get(escolhaCursoMostrarAlunos).imprimirCompleto());
+                                                           
                     break;
                     
                 case 5:
+                    JOptionPane.showMessageDialog(null, "Saindo...");
                     System.exit(0);
                     break;
             }
