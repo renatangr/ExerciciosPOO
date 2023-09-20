@@ -12,6 +12,7 @@ public class Curso {
         lstAlunos = new ArrayList<>();
     }
     
+    
     public Curso (int codigo, String nome, int cargaHoraria) {
         this();
         this.codigo = codigo;
@@ -47,8 +48,8 @@ public class Curso {
         lstAlunos.add(aluno);
     }
     
-    public void removerAluno (int index) {
-        lstAlunos.remove(index);
+    public void removerAluno (Aluno aluno) {
+        lstAlunos.remove(aluno);
     }
     
     public String imprimir () {  
@@ -61,7 +62,8 @@ public class Curso {
     }
     
     
-    public String imprimirCompleto () {    
+    public String imprimirCompleto () {
+        
         StringBuilder sb = new StringBuilder();
         sb.append("Código: ").append(codigo).append("\nNome: ").append(nome).append("\nCarga Horária: ").append(cargaHoraria);
         sb.append("\nAlunos:\n");
