@@ -32,10 +32,12 @@ public class Aluno {
     }
     
     public String imprimir () {
-        
-        return  "\n====================" +
-                "\nRA: " +getRa()+
-                "\nNome: " +getNome();         
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nNome do aluno: ").append(nome)
+          .append("\nRegistro acadêmico: ").append(ra)
+          .append("\n-------------------------\n");
+                  
+        return sb.toString();       
     }
     
 }
