@@ -32,9 +32,10 @@ public class Aluno {
     }
     
     public String imprimir () {
+        
         return  "\n====================" +
-                "\nRA: " +ra+
-                "\nNome: " +nome;         
+                "\nRA: " +getRa()+
+                "\nNome: " +getNome();         
     }
     
 }
