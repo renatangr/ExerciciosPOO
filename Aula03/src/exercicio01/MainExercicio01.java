@@ -97,7 +97,7 @@ public class MainExercicio01 {
                     
                 case 3:
                     for (Curso c : lstCursos) {
-                        JOptionPane.showMessageDialog(null, "Cursos cadastrados: " + curso.imprimir());
+                    JOptionPane.showMessageDialog(null, "Cursos cadastrados: " + c.imprimir());
                     }
                     break;
                     
@@ -112,8 +112,16 @@ public class MainExercicio01 {
                         "Escolha uma opção",
                         JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesCurso3, opcoesCurso3[0]);
                     
-                    JOptionPane.showMessageDialog(null, "Alunos cadastrados no curso " + lstCursos.get(escolhaCursoMostrarAlunos).getNome() + " : " + lstCursos.get(escolhaCursoMostrarAlunos).imprimirCompleto());
-                                                           
+                    JOptionPane.showMessageDialog(null, "Alunos cadastrados no curso " + lstCursos.get(escolhaCursoMostrarAlunos).getNome() + " : ");
+                    
+                    for (Aluno a : lstAlunos) {
+                        
+                        JOptionPane.showMessageDialog(null, "Cursos cadastrados: " + a.imprimir());
+                        
+                    }
+                    
+                    // 
+                    
                     break;
                     
                 case 5:
