@@ -19,7 +19,7 @@ public class MainExercicio01 {
         
         do {
         String[] options = {"Cadastrar Curso", "Cadastrar Aluno", "Remover Aluno", 
-            "Mostrar Todos os Cursos", "Mostrar alunos do curso", "Sair" };
+            "Mostrar Todos os Cursos", "Mostrar Todos os Alunos", "Sair" };
         
         escolha = JOptionPane.showOptionDialog(null, "Escolha uma das opções abaixo:",
                 "Escolha uma opção",
@@ -96,32 +96,33 @@ public class MainExercicio01 {
                     break;
                     
                 case 3:
+                    StringBuilder cursosList = new StringBuilder();
+                    
+                    cursosList.append("Cursos cadastrados:\n-------------------------\n");
+
                     for (Curso c : lstCursos) {
-                    JOptionPane.showMessageDialog(null, "Cursos cadastrados: " + c.imprimir());
+                        cursosList.append(c.imprimir()).append("\n Detalhes dos cursos: ").append(c.imprimirCompleto());
+                      
                     }
+                    
+                    JOptionPane.showMessageDialog(null, cursosList.toString());
                     break;
+
                     
                 case 4:
-                    String[] opcoesCurso3 = new String[lstCursos.size()];                    
-                    
-                    for (int i = 0; i < lstCursos.size(); i++) {
-                    opcoesCurso3[i] = lstCursos.get(i).getNome();
+                    if (lstAlunos.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Nenhum aluno cadastrado!");
+                        break;
                     }
-                    
-                    escolhaCursoMostrarAlunos = JOptionPane.showOptionDialog(null, "Escolha o curso que o aluno está matriculado:",
-                        "Escolha uma opção",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesCurso3, opcoesCurso3[0]);
-                    
-                    JOptionPane.showMessageDialog(null, "Alunos cadastrados no curso " + lstCursos.get(escolhaCursoMostrarAlunos).getNome() + " : ");
-                    
+
+                    StringBuilder todosAlunos = new StringBuilder();
+                    todosAlunos.append("Todos os alunos cadastrados:\n-------------------------\n");
+
                     for (Aluno a : lstAlunos) {
-                        
-                        JOptionPane.showMessageDialog(null, "Cursos cadastrados: " + a.imprimir());
-                        
+                        todosAlunos.append(a.imprimir()).append("\n");
                     }
-                    
-                    // 
-                    
+
+                    JOptionPane.showMessageDialog(null, todosAlunos.toString());
                     break;
                     
                 case 5:
