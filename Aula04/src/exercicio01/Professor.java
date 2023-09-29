@@ -38,5 +38,14 @@ public class Professor extends Pessoa {
         this.salario = salario;
     }
     
+    public String imprimir() {
+        return "Nome: " + nome +
+                "\nCPF: " + getCpf() +
+                "\nEndereco: " + getEndereco() +
+                "\nCracha: " + cracha +
+                "\nTipo Vinculo: " + tipoVinculo +
+                "\nSalario: " + salario;
+}
+    
     
 }
