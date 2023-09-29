@@ -37,7 +37,7 @@ Quero expressar meu agradecimento às seguintes pessoas e recursos que tornaram 
 - Aos meus professores da Facens, que me ensinaram lógica de programação e orientação a objetos:
   - [Robson Martins](https://www.linkedin.com/in/robsonmartins): Pelas valiosas lições em lógica de programação e desenvolvimento de software.
   - [Bruno Aguilar da Cunha](https://www.linkedin.com/in/brunoaguilardacunha/): Pelo start a orientação a objetos e estrutura de dados.
-  - [Fábio Colombini](https://www.linkedin.com/in/fabio-colombini): Pela orientação e suporte durante meus estudos mais afincos em POO.
+  - [Fábio Colombini](https://www.linkedin.com/in/fabio-colombini): Pela orientação e suporte durante meus estudos com mais afinco em POO.
 - Às aulas gratuitas de Gustavo Guanabara [(@gustavoguanabara)](https://github.com/gustavoguanabara) e Loiane Groner [(@loiane)](https://github.com/loiane) que me ajudaram imensamente a dar um pontapé inicial.
 - Ao meu amado Renan [(@RSouza27)](https://github.com/RSouza27), que esteve ao meu lado codando dias e noites, me ajudando e apoiando em tudo que eu precisava. 💕
 
