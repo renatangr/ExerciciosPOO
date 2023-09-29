@@ -1,7 +1,7 @@
 package exercicio01;
 
 class Pessoa {
-    private String nome;
+    protected String nome;
     private String cpf;
     private String endereco;
 
@@ -16,7 +16,7 @@ class Pessoa {
         this.endereco = endereco;
     }
     
-    public String geCpf() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -39,6 +39,11 @@ class Pessoa {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
+    
+    public String imprimir() {
+        return "Nome: " + nome +
+                "\nCPF: " + cpf +
+                "\nEndereco: " + endereco;
+    }
 }
 

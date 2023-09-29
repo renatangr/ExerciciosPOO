@@ -39,13 +39,11 @@ public class Professor extends Pessoa {
     }
     
     public String imprimir() {
-        return "Nome: " + nome +
-                "\nCPF: " + getCpf() +
-                "\nEndereco: " + getEndereco() +
+        return super.imprimir() +
                 "\nCracha: " + cracha +
                 "\nTipo Vinculo: " + tipoVinculo +
                 "\nSalario: " + salario;
-}
+    }
     
     
 }

@@ -31,9 +31,7 @@ public class Aluno extends Pessoa {
     }
    
     public String imprimir() {
-        return "Nome: " + nome +
-                "\nCPF: " + getCpf() +
-                "\nEndereco: " + getEndereco() +
+        return super.imprimir() +
                 "\nRA: " + ra +
                 "\nNota 1: " + nota1 +
                 "\nNota 2: " + nota2;
