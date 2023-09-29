@@ -30,6 +30,7 @@ public class Aluno extends Pessoa {
         this.nota2 = nota2;
     }
    
+    @Override
     public String imprimir() {
         return super.imprimir() +
                 "\nRA: " + ra +
